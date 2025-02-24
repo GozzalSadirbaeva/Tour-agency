@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .bg-home {
+    background-image: url(/img1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .nav-text {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 19px;
+    line-height: 23px;
+    color: #000000a8;
+  }
+  .nav-text:hover {
+    color: #3d3990;
+  }
+  .footer-text {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 19px;
+    line-height: 23px;
+    color: white;
+  }
