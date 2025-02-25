@@ -74,7 +74,7 @@ export default function Destinations() {
   return (
     <div className="bg-gray-100 py-16 px-6 md:px-12 lg:px-24 text-center">
       <h2 className="text-4xl font-bold text-[#3d3990] mb-6">
-        Dunyo bo'ylab tashrif buyurish kerak bo'lgan joylar
+      Dunyo bo'ylab eng ko'p sayohat qilinadigan joylar
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {places.map((place, index) => (

@@ -1,37 +1,43 @@
 import Link from "next/link";
 import { BsTelegram } from "react-icons/bs";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaFacebookSquare } from "react-icons/fa";
-const Footer = () => {
+import { FaInstagramSquare, FaFacebookSquare, FaPhoneAlt, FaClock } from "react-icons/fa";
 
+const Footer = () => {
   return (
-    <div className="bg-[#3d3990]">
-      <div className="container grid md:grid-cols-3 grid-cols-1  py-10 md:px-8 px-4 items-center place-items-center">
-        <div>
-          <a className=" text-white text-2xl font-bold">BELLETTO-TRAVEL</a>
+    <div className="bg-[#3d3990] text-white py-10">
+      <div className="container grid md:grid-cols-3 grid-cols-1 gap-8 px-4 md:px-8">
+        {/* Company Name */}
+        <div className="text-center md:text-left">
+          <h2 className="text-2xl font-bold">BELLETTO-TOUR</h2>
+          <p className="mt-2 text-gray-300">Siz bilan birga eng yaxshi sayohatlar!</p>
         </div>
-        <div className="flex flex-col gap-3">
-          <Link href={"/"} className="footer-text">
-            Bosh sahifa
-          </Link>
-          <Link href={"/destinations"} className="footer-text">
-            Sayohatlar
-          </Link>
-          <Link href={"/about"} className="footer-text">
-            Biz haqimizda
-          </Link>
-          <Link href={"/term"} className="footer-text">
-            Foydalanish shartlari          
-            </Link>
-          <Link href={"/contact"} className="footer-text">
-            Bog'lanish
-          </Link>
+
+        {/* Navigation Links */}
+        <div className="flex flex-col gap-3 text-center md:text-left">
+          <Link href="/" className="hover:text-gray-300">Bosh sahifa</Link>
+          <Link href="/destinations" className="hover:text-gray-300">Sayohatlar</Link>
+          <Link href="/about" className="hover:text-gray-300">Biz haqimizda</Link>
+          <Link href="/term" className="hover:text-gray-300">Foydalanish shartlari</Link>
+          <Link href="/contact" className="hover:text-gray-300">Bog'lanish</Link>
         </div>
-        <div className="flex gap-4">
-          <a href=""><BsTelegram color="white" size={"30px"}/></a>
-          <a href=""><FaInstagramSquare color="white" size={"30px"}/></a>
-          <a href=""><FaFacebookSquare color="white" size={"30px"}/></a>
+
+        {/* Contact Info */}
+        <div className="flex flex-col items-center md:items-start gap-3">
+          <div className="flex items-center gap-2">
+            <FaPhoneAlt size={20} />
+            <span>+998 97 410 47 47</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <FaClock size={20} />
+            <span>Ish vaqti: 9:00-18:00 (Dushanba - Seshanba)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <BsTelegram size={20} />
+            <span>24 soat online aloqa: <a href="https://t.me/Belletto_uz" className="text-blue-300 hover:underline">@Belletto_uz</a></span>
+          </div>
         </div>
+
+        
       </div>
     </div>
   );
