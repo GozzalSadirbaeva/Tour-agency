@@ -6,22 +6,22 @@ import TravelCard from "@/components/TravelCard";
 
 const places = [
   {
-    name: "Eiffel Tower",
+    name: "Eyfel minorasi",
     image: "/eiffel.png",
     description:
-      "An iconic landmark in Paris, France, known for its stunning architecture and breathtaking views.",
+      "Fransiyaning poytaxti Parij shahrida joylashgan dunyoga mashhur me’moriy inshoot. Bu minora 1889-yilda Fransiya inqilobining 100 yilligiga bag‘ishlab qurilgan va Parijning eng asosiy ramziga aylangan",
   },
   {
-    name: "Great Wall of China",
+    name: "Buyuk Xitoy devori",
     image: "/greatwall.png",
     description:
-      "One of the greatest wonders of the world, stretching thousands of miles across China.",
+      "Dunyodagi eng uzun mudofaa inshooti bo‘lib, qadimgi Xitoy imperiyasini dushman hujumlaridan himoya qilish uchun qurilgan.",
   },
   {
     name: "Taj Mahal",
     image: "/tajmahal.png",
     description:
-      "A symbol of love in India, the Taj Mahal is a breathtaking marble mausoleum.",
+      "Hindistonning Agra shahrida joylashgan, dunyodagi eng mashhur me’moriy yodgorliklardan biri. Bu muhtasham maqbara Shoh Jahon tomonidan uning sevimli rafiqasi Mumtaz Mahal xotirasiga atab qurilgan bo‘lib, sevgi ramzi sifatida tanilgan.",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function Destinations() {
 
   return (
     <div className="bg-gray-100 py-16 px-6 md:px-12 lg:px-24 text-center">
-      <h2 className="text-4xl font-bold  mb-6">
+      <h2 className="text-4xl font-bold text-[#3d3990] mb-6">
         Dunyo bo'ylab tashrif buyurish kerak bo'lgan joylar
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

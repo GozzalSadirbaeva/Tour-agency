@@ -16,6 +16,12 @@ const Header = () => {
             <Link href={"/destinations"} className="nav-text">
               Sayohatlar            
             </Link>
+            <Link href={"/about"} className="nav-text">
+              Biz haqimizda            
+            </Link>
+            <Link href={"/term"} className="nav-text">
+            Foydalanish shartlari          
+            </Link>
             <Link href={"/contact"} className="nav-text">Bog'lanish</Link>
           </div>
         </div>
