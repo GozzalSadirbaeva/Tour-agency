@@ -76,7 +76,7 @@ export default function Destinations() {
       <h2 className="text-4xl font-bold text-[#3d3990] mb-6">
       Dunyo bo'ylab eng ko'p sayohat qilinadigan joylar
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {places.map((place, index) => (
           <div key={index} className="relative group cursor-pointer">
             <Image
@@ -84,7 +84,7 @@ export default function Destinations() {
               alt={place.name}
               width={341}
               height={511}
-              className="rounded-lg "
+              className="rounded-lg w-full object-cover"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
               <button

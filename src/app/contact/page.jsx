@@ -31,44 +31,43 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="mt-10">
-      <div className="container grid md:grid-cols-2 grid-cols-1">
+    <div className="mt-10 px-4 sm:px-6 lg:px-8">
+      <div className="container grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <img src="/jpg22.jpg" alt="" className="rounded-lg" />
+          <img src="/jpg22.jpg" alt="" className="rounded-lg w-full object-cover" />
         </div>
         <div>
-          <h2 className="font-bold text-[38px] leading-[30px] text-color-second text-center">
+          <h2 className="font-bold text-3xl sm:text-4xl text-color-second text-center">
             Bog‘lanish
           </h2>
-          <div className="pt-10 px-10 pb-12 bg-white">
-            <h2 className="font-semibold text-[26px] leading-8 pb-6">
+          <div className="pt-10 px-6 sm:px-10 pb-12 bg-white rounded-lg shadow-md">
+            <h2 className="font-semibold text-2xl sm:text-3xl leading-8 pb-6">
               Ma’lumot qoldiring
             </h2>
-            <h3 className="inter text-[20px] leading-[34px] font-light pb-5">
-              Ma’lumotlaringizni qoldiring va operatorimiz sizga darhol aloqaga
-              chiqadi.
+            <h3 className="inter text-lg sm:text-xl leading-7 pb-5">
+              Ma’lumotlaringizni qoldiring va operatorimiz sizga darhol aloqaga chiqadi.
             </h3>
             <form action="" className="flex flex-col">
               <input
                 type="text"
                 placeholder="Ismingiz"
-                className="inter text-xl leading-7 py-[10px] px-4 border-[1px] border-[#54576366] rounded-2xl mb-[20px]"
+                className="inter text-lg sm:text-xl leading-7 py-2 px-4 border border-gray-400 rounded-xl mb-4"
               />
               <input
                 type="text"
                 placeholder="+998 Telefon raqamingiz"
-                className="inter text-xl leading-7 py-[10px] px-4 border-[1px] border-[#54576366] rounded-2xl mb-[20px]"
+                className="inter text-lg sm:text-xl leading-7 py-2 px-4 border border-gray-400 rounded-xl mb-4"
               />
-              <button className="py-3 bg-[#DDAE57] text-white inter text-xl leading-7 rounded-2xl">
+              <button className="py-3 bg-[#DDAE57] text-white inter text-lg sm:text-xl leading-7 rounded-xl">
                 Jo‘natish
               </button>
             </form>
           </div>
         </div>
       </div>
-      <div className="w-[800px] h-[400px] mb-5 justify-self-center">
+      <div className="w-full h-96 sm:h-[400px] mt-10 flex justify-center">
         {markerIcon && (
-          <MapContainer center={tashkentCenter} zoom={13} className="h-full w-full">
+          <MapContainer center={tashkentCenter} zoom={13} className="h-full w-full max-w-4xl">
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

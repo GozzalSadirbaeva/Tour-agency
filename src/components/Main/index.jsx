@@ -9,34 +9,13 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
 const destinations = [
-  {
-    name: "Bali, Indonesia",
-    image: "/bali.jpg",
-  },
-  {
-    name: "Paris, France",
-    image: "/paris.jpg",
-  },
-  {
-    name: "Tokyo, Japan",
-    image: "tokio.jpg",
-  },
-  {
-    name: "Pekin, China",
-    image: "/jpg15.jpg",
-  },
-  {
-    name: "Bangkok, Thailand",
-    image: "/jpg17.jpg",
-  },
-  {
-    name: "Rome, Italy",
-    image: "/rome.jpg",
-  },
-  {
-    name: "Istanbul, Turkey",
-    image: "/turkey.jpg",
-  },
+  { name: "Bali, Indonesia", image: "/bali.jpg" },
+  { name: "Paris, France", image: "/paris.jpg" },
+  { name: "Tokyo, Japan", image: "/tokio.jpg" },
+  { name: "Pekin, China", image: "/jpg15.jpg" },
+  { name: "Bangkok, Thailand", image: "/jpg17.jpg" },
+  { name: "Rome, Italy", image: "/rome.jpg" },
+  { name: "Istanbul, Turkey", image: "/turkey.jpg" },
 ];
 
 export default function Main() {
@@ -56,93 +35,69 @@ export default function Main() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 640,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
   };
+
   return (
     <>
-      <section className=" bg-home relative h-screen flex items-center justify-center bg-cover bg-center text-black">
-        <div className="bg-white bg-opacity-50 p-10 rounded-lg text-center">
-          <h1 className="text-5xl font-bold mb-4 text-[#3d3990]">
-          Belletto Tour bilan dunyo bo'ylab sayohat qiling
+      <section className="bg-home relative h-screen flex items-center justify-center bg-cover bg-center text-black px-4">
+        <div className="bg-white bg-opacity-50 p-6 md:p-10 rounded-lg text-center w-full max-w-6xl">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#3d3990]">
+            Belletto Tour bilan dunyo bo'ylab sayohat qiling
           </h1>
-          <p className="text-lg mb-6">
-          Sizni ajoyib sarguzashtlar kutmoqda. Hozir bo'lmasa qachon?!
+          <p className="text-base md:text-lg mb-6">
+            Sizni ajoyib sarguzashtlar kutmoqda. Hozir bo'lmasa qachon?!
           </p>
           <button className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]">
             Bron qilish
           </button>
         </div>
       </section>
-      <section className="container md:px-8 px-4 pt-10 flex justify-between">
-        <div className="flex items-center gap-4">
-          <div className="bg-[#3d3990] p-4 rounded-full">
-            <FaMapMarkedAlt size={"40px"} color="white" />
+      <section className="container px-4 md:px-8 pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        {[ 
+          { icon: <FaMapMarkedAlt size={40} />, text: "Expert gid xizmati" },
+          { icon: <BiHappyHeartEyes size={40} />, text: "Mamnun mijozlar" },
+          { icon: <GiAlarmClock size={40} />, text: "Tezkor tasdiqlash" },
+          { icon: <MdOutlineSupportAgent size={40} />, text: "24/7 Qo'llab-quvvatlash xizmati" }
+        ].map((item, index) => (
+          <div key={index} className="flex flex-col items-center gap-2">
+            <div className="bg-[#3d3990] p-4 rounded-full text-white">{item.icon}</div>
+            <p className="text-lg font-medium text-[#737372]">{item.text}</p>
           </div>
-          <p className="text-xl font-medium text-[#737372]">
-            Expert gid xizmati
-          </p>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="bg-[#3d3990] p-4 rounded-full">
-            <BiHappyHeartEyes size={"40px"} color="white" />
-          </div>
-          <p className="text-xl font-medium text-[#737372]">Mamnun mijozlar</p>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="bg-[#3d3990] p-4 rounded-full">
-            <GiAlarmClock size={"40px"} color="white" />
-          </div>
-          <p className="text-xl font-medium text-[#737372]">
-          Tezkor tasdiqlash
-          </p>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="bg-[#3d3990] p-4 rounded-full">
-            <MdOutlineSupportAgent size={"40px"} color="white" />
-          </div>
-          <p className="text-xl font-medium text-[#737372]">24/7 Qo'llab-quvvatlash xizmati</p>
-        </div>
+        ))}
       </section>
-      <section className="container py-28 px-6  grid md:grid-cols-2 grid-cols-1 md:gap-10">
+      <section className="container py-16 px-4 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <img src="jpg20.jpg" alt="Biz haqimizda" className="rounded-xl w-full" />
         <div>
-          <img src="jpg20.jpg" alt="" className="rounded-xl" />
-        </div>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6  text-[#3d3990] text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#3d3990] text-center md:text-left">
             Biz haqimizda
           </h2>
-          <p className=" pb-5 text-lg">
-          Bizning sayyohlik agentligimiz noyob va qiziqarli sayohat tajribalarini taklif etadi
-            shaxslar va guruhlar. Sarguzashtlarga, madaniyatga va
-            barqaror turizm uchun unutilmas xotiralar yaratishga intilamiz
-            bizning mijozlarimiz.
+          <p className="pb-5 text-lg">
+            Bizning sayyohlik agentligimiz noyob va qiziqarli sayohat tajribalarini taklif etadi...
           </p>
           <p className="text-lg">
-          Bizning bilimli gidlar va samimiy xodimlar jamoasi
-            mukammal xizmat ko'rsatish va xavfsiz va qiziqarli sayohatni ta'minlash
-            hamma uchun. Ekzotik joylarni o'rganishdan tortib, yangi faoliyatni sinab ko'rishgacha
-            va oshxonalar, biz moslashtirilgan marshrutlarga ixtisoslashganmiz
-            turli manfaatlar va byudjetlar. Unutilmas sayohat uchun bizga qo'shiling
-            ufqlaringizni kengaytiradi va sizni ilhomlantiradi.
+            Bizning bilimli gidlar va samimiy xodimlar jamoasi mukammal xizmat ko'rsatish va xavfsiz va qiziqarli sayohatni ta'minlash...
           </p>
         </div>
       </section>
-      <section className="pb-28 text-center ">
-        <h2 className="text-4xl font-bold mb-6 text-[#3d3990]">
-        Mashhur joylar
+      <section className="pb-28 text-center px-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#3d3990]">
+          Mashhur joylar
         </h2>
         <div className="relative max-w-5xl mx-auto">
           <button
             onClick={() => sliderRef.current.slickPrev()}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#3d3990] text-white p-2 rounded-full z-10"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[#3d3990] text-white p-2 rounded-full z-10"
           >
             <FaChevronLeft size={24} />
           </button>
@@ -153,16 +108,16 @@ export default function Main() {
                   <img
                     src={dest.image}
                     alt={dest.name}
-                    className="w-full h-72 object-cover"
+                    className="w-full h-60 object-cover"
                   />
-                  <h3 className="text-xl font-semibold p-4">{dest.name}</h3>
+                  <h3 className="text-lg md:text-xl font-semibold p-4">{dest.name}</h3>
                 </div>
               </div>
             ))}
           </Slider>
           <button
             onClick={() => sliderRef.current.slickNext()}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#3d3990] text-white p-2 rounded-full z-10"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#3d3990] text-white p-2 rounded-full z-10"
           >
             <FaChevronRight size={24} />
           </button>
