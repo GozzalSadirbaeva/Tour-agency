@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Belletto Tour",
-  description: "Discover amazing destinations with Belletto Tour",
+  description: "Belletto Tour bilan dunyoni kashf eting",
   icons: "/logo2.png",
 };
 
