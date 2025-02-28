@@ -58,35 +58,52 @@ export default function Main() {
           <p className="text-base md:text-lg mb-6">
             Sizni ajoyib sarguzashtlar kutmoqda. Hozir bo'lmasa qachon?!
           </p>
-          <button className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]">
+          <a  href="tel:+998974104747" className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]">
             Bron qilish
-          </button>
+          </a>
         </div>
       </section>
       <section className="container px-4 md:px-8 pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-        {[ 
+        {[
           { icon: <FaMapMarkedAlt size={40} />, text: "Expert gid xizmati" },
           { icon: <BiHappyHeartEyes size={40} />, text: "Mamnun mijozlar" },
           { icon: <GiAlarmClock size={40} />, text: "Tezkor tasdiqlash" },
-          { icon: <MdOutlineSupportAgent size={40} />, text: "24/7 Qo'llab-quvvatlash xizmati" }
+          {
+            icon: <MdOutlineSupportAgent size={40} />,
+            text: "24/7 Qo'llab-quvvatlash xizmati",
+          },
         ].map((item, index) => (
           <div key={index} className="flex flex-col items-center gap-2">
-            <div className="bg-[#3d3990] p-4 rounded-full text-white">{item.icon}</div>
+            <div className="bg-[#3d3990] p-4 rounded-full text-white">
+              {item.icon}
+            </div>
             <p className="text-lg font-medium text-[#737372]">{item.text}</p>
           </div>
         ))}
       </section>
       <section className="container py-16 px-4 grid grid-cols-1 md:grid-cols-2 gap-10">
-        <img src="jpg20.jpg" alt="Biz haqimizda" className="rounded-xl w-full" />
+        <img
+          src="jpg20.jpg"
+          alt="Biz haqimizda"
+          className="rounded-xl w-full"
+        />
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#3d3990] text-center md:text-left">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#3d3990] text-center">
             Biz haqimizda
           </h2>
-          <p className="pb-5 text-lg">
-            Bizning sayyohlik agentligimiz noyob va qiziqarli sayohat tajribalarini taklif etadi...
-          </p>
+          <p className="text-2xl text-center pb-2"><b>BELLETTO TOUR </b>ga  
+          xush kelibsiz!</p>
           <p className="text-lg">
-            Bizning bilimli gidlar va samimiy xodimlar jamoasi mukammal xizmat ko'rsatish va xavfsiz va qiziqarli sayohatni ta'minlash...
+            Biz sizning ehtiyojlaringizga moslashtirilgan ajoyib
+            sayohat tajribasini taqdim etishga bag'ishlangan yangi tashkil
+            etilgan sayyohlik kompaniyasimiz. <br />
+            <b>BELLETTO TOUR</b>-da biz har bir sayohat shunchaki sayohatdan ko'proq
+            bo'lishi kerak, deb hisoblaymiz - bu kashfiyot, qulaylik va
+            unutilmas xotiralar bilan to'ldirilgan sarguzasht bo'lishi kerak.
+            Madaniy kashfiyotlar, dam olish sayohatlari yoki hayajonli
+            sarguzashtlarni qidiryapsizmi, bizning jamoamiz buni amalga oshirish
+            uchun shu yerda. <br />
+            <b className="text-center">BELLETTO TOUR bilan sayohat qiling!</b> 
           </p>
         </div>
       </section>
@@ -110,7 +127,9 @@ export default function Main() {
                     alt={dest.name}
                     className="w-full h-60 object-cover"
                   />
-                  <h3 className="text-lg md:text-xl font-semibold p-4">{dest.name}</h3>
+                  <h3 className="text-lg md:text-xl font-semibold p-4">
+                    {dest.name}
+                  </h3>
                 </div>
               </div>
             ))}

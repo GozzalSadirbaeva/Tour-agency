@@ -9,9 +9,9 @@ const Header = () => {
   return (
     <header className="bg-white shadow-md">
       <div className="container px-4 md:px-8 flex justify-between items-center py-4">
-        <a className="text-[#3d3990] text-2xl font-bold">
+        <Link href="/" className="text-[#3d3990] text-2xl font-bold">
           <img src="/logo.png" alt="Logo" className="w-[200px] h-[60px]" />
-        </a>
+        </Link>
 
         <div className="hidden md:flex gap-10 text-[#3d3990]">
           <Link href="/" className="nav-text">
@@ -85,12 +85,12 @@ const Header = () => {
             >
               Bog'lanish
             </Link>
-            <button
+            <a href="tel:+998974104747"
               className="bg-[#3d3990] text-white px-3 py-2 rounded-lg"
               onClick={() => setIsOpen(false)}
             >
               Bron qilish
-            </button>
+            </a>
           </nav>
         </div>
       )}
