@@ -15,8 +15,6 @@ export default function TermsAndConditions() {
         </h2>
         <p className="text-gray-600 mt-2 text-xl sm:text-lg">
           Barcha bandlovlar oldindan to'liq yoki qisman to'lashni talab qiladi.
-          To'lovlar bizning xavfsiz to'lov shlyuzimiz orqali amalga oshirilishi
-          kerak.
         </p>
       </section>
 
@@ -30,7 +28,7 @@ export default function TermsAndConditions() {
           kam vaqt qolgan bo'lsa, to'lov qaytarilmaydi. <br /> Agar bilet charter reys
           orqali sotib olingan bo'lsa, u bekor qilinmaydi va pul qaytarilmaydi. <br />
           Mehmonxona bronlarini bekor qilishda, pulni qaytarish kafolatlanmaydi. <br />
-          Qaytrarish bo'yicha to'lovlar, agar kerak bo'lsa, 7-30 ish kuni ichida
+          Qaytarish bo'yicha to'lovlar, agar kerak bo'lsa, 7-30 ish kuni ichida
           ko'rib chiqiladi.
         </p>
       </section>
@@ -69,7 +67,7 @@ export default function TermsAndConditions() {
       </section>
 
       <p className="text-gray-600 text-base mt-6 text-center sm:text-sm">
-        Agar sizda biron bir savol bo'lsa, support@belletto-travel.com manzili
+        Agar sizda biron bir savol bo'lsa, support@belletto-travel.uz manzili
         orqali biz bilan bog'laning
       </p>
     </div>
