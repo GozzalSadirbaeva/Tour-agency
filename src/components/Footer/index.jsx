@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-start gap-3">
           <div className="flex items-center gap-2">
             <FaPhoneAlt size={20} />
-            <span>+998 97 410 47 47</span>
+            <span>+998 95 040-74-47</span>
           </div>
           <div className="flex items-center gap-2">
             <FaClock size={20} />
@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
           <div className="flex items-center gap-2">
             <BsTelegram size={20} />
-            <span>24 soat online aloqa: <a href="https://t.me/Belletto_uz" className="text-blue-300 hover:underline">@Belletto_uz</a></span>
+            <span>24 soat online aloqa: <a href="https://t.me/belletto_tour" className="text-blue-300 hover:underline">@Belletto_uz</a></span>
           </div>
         </div>
 

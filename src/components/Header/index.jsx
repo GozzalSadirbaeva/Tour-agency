@@ -9,8 +9,10 @@ const Header = () => {
   return (
     <header className="bg-white shadow-md">
       <div className="container px-4 md:px-8 flex justify-between items-center py-4">
-        <Link href="/" className="text-[#3d3990] text-2xl font-bold">
-          <img src="/logo.png" alt="Logo" className="w-[200px] h-[60px]" />
+        <Link href="/" className="text-yellow-500 text-2xl font-bold flex items-center gap-2">
+          <img src="/logo11.jpg" alt="Logo" className="w-[60px] h-[60px] rounded-full" />
+          <p>Belletto-Tour</p>
+
         </Link>
 
         <div className="hidden md:flex gap-10 text-[#3d3990]">
