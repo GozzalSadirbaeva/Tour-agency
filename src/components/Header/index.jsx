@@ -87,7 +87,7 @@ const Header = () => {
             >
               Bog'lanish
             </Link>
-            <a href="tel:+998974104747"
+            <a href="tel:+998950407447"
               className="bg-[#3d3990] text-white px-3 py-2 rounded-lg"
               onClick={() => setIsOpen(false)}
             >

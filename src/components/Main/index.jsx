@@ -58,7 +58,7 @@ export default function Main() {
           <p className="text-base md:text-lg mb-6">
             Sizni ajoyib sarguzashtlar kutmoqda. Hozir bo'lmasa qachon?!
           </p>
-          <a  href="tel:+998974104747" className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]">
+          <a  href="tel:+998950407447" className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]">
             Bron qilish
           </a>
         </div>
