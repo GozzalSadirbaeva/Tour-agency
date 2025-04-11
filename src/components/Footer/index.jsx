@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BsTelegram } from "react-icons/bs";
 import { FaInstagramSquare, FaFacebookSquare, FaPhoneAlt, FaClock } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
@@ -29,11 +30,15 @@ const Footer = () => {
           </div>
           <div className="flex items-center gap-2">
             <FaClock size={20} />
-            <span>Ish vaqti: 9:00-18:00 (Dushanba - Seshanba)</span>
+            <span>Ish vaqti: 9:00-18:00 (Dushanba - Shanba)</span>
           </div>
           <div className="flex items-center gap-2">
             <BsTelegram size={20} />
             <span>24 soat online aloqa: <a href="https://t.me/belletto_tour" className="text-blue-300 hover:underline">@Belletto_tour</a></span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MdOutlineEmail size={20} />
+            <span><a href="mailto:bellettotour@gmail.com" className="text-blue-300 hover:underline">bellettotour@gmail.com</a></span>
           </div>
         </div>
       </div>

@@ -10,7 +10,8 @@ const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), 
 const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), { ssr: false });
 
 const Contact = () => {
-  const tashkentCenter = [41.2995, 69.2401];
+  const tashkentCenter = [41.314702, 69.326102];
+
 
   const [markerIcon, setMarkerIcon] = useState(null);
 
@@ -65,7 +66,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-96 sm:h-[400px] mt-10 flex justify-center">
+      <div className="w-full h-96 sm:h-[400px] mt-10 flex justify-center border-none">
         {markerIcon && (
           <MapContainer center={tashkentCenter} zoom={13} className="h-full w-full max-w-4xl">
             <TileLayer
