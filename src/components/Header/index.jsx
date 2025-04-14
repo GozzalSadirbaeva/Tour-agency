@@ -1,42 +1,70 @@
-"use client";
-import Link from "next/link";
-import { memo, useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+'use client';
+
+import { Select } from 'antd';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { memo, useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const lang = useLocale();
 
+  const t = useTranslations();
   return (
     <header className="bg-white shadow-md">
       <div className="container px-4 md:px-8 flex justify-between items-center py-4">
-        <Link href="/" className="text-yellow-500 text-2xl font-bold flex items-center gap-2">
-          <img src="/logo11.jpg" alt="Logo" className="w-[60px] h-[60px] rounded-full" />
-          <p>Belletto-Tour</p>
-
+        <Link
+          href={`/${lang}`}
+          className="text-yellow-500 text-2xl font-bold flex items-center gap-2"
+        >
+          <img
+            src="/logo11.jpg"
+            alt="Logo"
+            className="w-[60px] h-[60px] rounded-full"
+          />
+          <p>{'belletto-tour'}</p>
         </Link>
 
         <div className="hidden md:flex gap-10 text-[#3d3990]">
-          <Link href="/" className="nav-text">
-            Bosh sahifa
+          <Link href={`/${lang}`} className="nav-text">
+            {t('Home')}
           </Link>
-          <Link href="/destinations" className="nav-text">
-            Sayohatlar
+          <Link href={`/${lang}/destinations`} className="nav-text">
+            {t('Destinations')}
           </Link>
-          <Link href="/about" className="nav-text">
-            Biz haqimizda
+          <Link href={`/${lang}/about`} className="nav-text">
+            {t('About')}
           </Link>
-          <Link href="/term" className="nav-text">
-            Foydalanish shartlari
+          <Link href={`/${lang}/term`} className="nav-text">
+            {t('Terms')}
           </Link>
-          <Link href="/contact" className="nav-text">
-            Bog'lanish
+          <Link href={`/${lang}/contact`} className="nav-text">
+            {t('Contact')}
           </Link>
         </div>
 
-        <div className="hidden md:block">
-          <button className="bg-[#3d3990] text-white px-3 py-2 rounded-lg">
-            Bron qilish
-          </button>
+        <div className="hidden md:flex  items-center gap-4">
+          <Link href={`/${lang}/booking`}>
+            <button className="bg-[#3d3990] text-white px-3 py-2 rounded-lg">
+              {t('BookNow')}
+            </button>
+          </Link>
+          <Select
+            style={{ width: 100 }}
+            variant="filled"
+            size="large"
+            value={lang}
+            onChange={(newLang) =>
+              (window.location.href = `/${newLang}/${window.location.pathname.slice(
+                3
+              )}`)
+            }
+          >
+            <Select.Option value="uz">uz</Select.Option>
+            <Select.Option value="en">en</Select.Option>
+            <Select.Option value="ru">ru</Select.Option>
+          </Select>
         </div>
 
         <div className="md:hidden flex items-center">
@@ -53,46 +81,48 @@ const Header = () => {
         <div className="md:hidden bg-white shadow-md absolute top-16 left-0 w-full z-10">
           <nav className="flex flex-col items-center py-4 gap-4 text-[#3d3990]">
             <Link
-              href="/"
+              href={`/${lang}`}
               className="nav-text"
               onClick={() => setIsOpen(false)}
             >
-              Bosh sahifa
+              {t('Home')}
             </Link>
             <Link
-              href="/destinations"
+              href={`/${lang}/destinations`}
               className="nav-text"
               onClick={() => setIsOpen(false)}
             >
-              Sayohatlar
+              {t('Destinations')}
             </Link>
             <Link
-              href="/about"
+              href={`/${lang}/about`}
               className="nav-text"
               onClick={() => setIsOpen(false)}
             >
-              Biz haqimizda
+              {t('About')}
             </Link>
             <Link
-              href="/term"
+              href={`/${lang}/term`}
               className="nav-text"
               onClick={() => setIsOpen(false)}
             >
-              Foydalanish shartlari
+              {t('Terms')}
             </Link>
             <Link
-              href="/contact"
+              href={`/${lang}/contact`}
               className="nav-text"
               onClick={() => setIsOpen(false)}
             >
-              Bog'lanish
+              {t('Contact')}
             </Link>
-            <a href="tel:+998950407447"
-              className="bg-[#3d3990] text-white px-3 py-2 rounded-lg"
-              onClick={() => setIsOpen(false)}
-            >
-              Bron qilish
-            </a>
+            <Link href={`/${lang}/booking`}>
+              <button
+                className="bg-[#3d3990] text-white px-3 py-2 rounded-lg"
+                onClick={() => setIsOpen(false)}
+              >
+                {t('BookNow')}
+              </button>
+            </Link>
           </nav>
         </div>
       )}
