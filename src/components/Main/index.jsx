@@ -1,22 +1,22 @@
-"use client";
-import LazyImg from "@/Hoc/LazyImg";
-import { useEffect, useRef } from "react";
-import { BiHappyHeartEyes } from "react-icons/bi";
-import { FaChevronLeft, FaChevronRight, FaMapMarkedAlt } from "react-icons/fa";
-import { GiAlarmClock } from "react-icons/gi";
-import { MdOutlineSupportAgent } from "react-icons/md";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
+'use client';
+import { useTranslations } from 'next-intl';
+import { useEffect, useRef } from 'react';
+import { BiHappyHeartEyes } from 'react-icons/bi';
+import { FaChevronLeft, FaChevronRight, FaMapMarkedAlt } from 'react-icons/fa';
+import { GiAlarmClock } from 'react-icons/gi';
+import { MdOutlineSupportAgent } from 'react-icons/md';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
 const destinations = [
-  { name: "Bali, Indonesia", image: "/bali.jpg" },
-  { name: "Paris, France", image: "/paris.jpg" },
-  { name: "Tokyo, Japan", image: "/tokio.jpg" },
-  { name: "Pekin, China", image: "/jpg15.jpg" },
-  { name: "Bangkok, Thailand", image: "/jpg17.jpg" },
-  { name: "Rome, Italy", image: "/rome.jpg" },
-  { name: "Istanbul, Turkey", image: "/turkey.jpg" },
+  { name: 'Bali, Indonesia', image: '/bali.jpg' },
+  { name: 'Paris, France', image: '/paris.jpg' },
+  { name: 'Tokyo, Japan', image: '/tokio.jpg' },
+  { name: 'Pekin, China', image: '/jpg15.jpg' },
+  { name: 'Bangkok, Thailand', image: '/jpg17.jpg' },
+  { name: 'Rome, Italy', image: '/rome.jpg' },
+  { name: 'Istanbul, Turkey', image: '/turkey.jpg' }
 ];
 
 export default function Main() {
@@ -24,9 +24,7 @@ export default function Main() {
     window.scrollTo(0, 0);
   }, []);
   const sliderRef = useRef(null);
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-
+  const t = useTranslations();
   const settings = {
     dots: true,
     infinite: true,
@@ -38,17 +36,17 @@ export default function Main() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
@@ -61,30 +59,24 @@ export default function Main() {
           <p className="text-base md:text-lg mb-6">
             Sizni ajoyib sarguzashtlar kutmoqda. Hozir bo'lmasa qachon?!
           </p>
-
           <a
-            href={isMobile ? "tel:+998950407447" : "#"}
-            onClick={() => {
-              if (!isMobile) {
-                alert("Iltimos, bizga qo'ng'iroq qilish uchun telefoningizdan foydalaning: +998950407447");
-              }
-            }}
+            href="tel:+998950407447"
             className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]"
           >
-            Bron qilish
+            {t('BookNow')}
           </a>
 
         </div>
       </section>
       <section className="container px-4 md:px-8 pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         {[
-          { icon: <FaMapMarkedAlt size={40} />, text: "Expert gid xizmati" },
-          { icon: <BiHappyHeartEyes size={40} />, text: "Mamnun mijozlar" },
-          { icon: <GiAlarmClock size={40} />, text: "Tezkor tasdiqlash" },
+          { icon: <FaMapMarkedAlt size={40} />, text: 'Expert gid xizmati' },
+          { icon: <BiHappyHeartEyes size={40} />, text: 'Mamnun mijozlar' },
+          { icon: <GiAlarmClock size={40} />, text: 'Tezkor tasdiqlash' },
           {
             icon: <MdOutlineSupportAgent size={40} />,
-            text: "24/7 Qo'llab-quvvatlash xizmati",
-          },
+            text: "24/7 Qo'llab-quvvatlash xizmati"
+          }
         ].map((item, index) => (
           <div key={index} className="flex flex-col items-center gap-2">
             <div className="bg-[#3d3990] p-4 rounded-full text-white">
@@ -104,19 +96,20 @@ export default function Main() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#3d3990] text-center">
             Biz haqimizda
           </h2>
-          <p className="text-2xl text-center pb-2"><b>BELLETTO TOUR </b>ga  
-          xush kelibsiz!</p>
+          <p className="text-2xl text-center pb-2">
+            <b>BELLETTO TOUR </b>ga xush kelibsiz!
+          </p>
           <p className="text-lg">
-            Biz sizning ehtiyojlaringizga moslashtirilgan ajoyib
-            sayohat tajribasini taqdim etishga bag'ishlangan yangi tashkil
-            etilgan sayyohlik kompaniyasimiz. <br />
-            <b>BELLETTO TOUR</b>-da biz har bir sayohat shunchaki sayohatdan ko'proq
-            bo'lishi kerak, deb hisoblaymiz - bu kashfiyot, qulaylik va
+            Biz sizning ehtiyojlaringizga moslashtirilgan ajoyib sayohat
+            tajribasini taqdim etishga bag'ishlangan yangi tashkil etilgan
+            sayyohlik kompaniyasimiz. <br />
+            <b>BELLETTO TOUR</b>-da biz har bir sayohat shunchaki sayohatdan
+            ko'proq bo'lishi kerak, deb hisoblaymiz - bu kashfiyot, qulaylik va
             unutilmas xotiralar bilan to'ldirilgan sarguzasht bo'lishi kerak.
             Madaniy kashfiyotlar, dam olish sayohatlari yoki hayajonli
             sarguzashtlarni qidiryapsizmi, bizning jamoamiz buni amalga oshirish
             uchun shu yerda. <br />
-            <b className="text-center">BELLETTO TOUR bilan sayohat qiling!</b> 
+            <b className="text-center">BELLETTO TOUR bilan sayohat qiling!</b>
           </p>
         </div>
       </section>

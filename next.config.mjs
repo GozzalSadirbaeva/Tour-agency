@@ -1,13 +1,11 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: "/:path*",
-        destination: "/index.html",
-      },
-    ];
-  },
+  output: 'standalone',
+  reactStrictMode: false
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
