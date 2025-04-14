@@ -12,6 +12,7 @@ export default function About() {
             src="/jpg1.jpg"
             alt=""
             layout="fill"
+             effect="blur"
             objectFit="cover"
           />
         </div>

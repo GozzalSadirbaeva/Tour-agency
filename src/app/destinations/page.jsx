@@ -82,6 +82,7 @@ export default function Destinations() {
             <Image
               src={place.image}
               alt={place.name}
+              effect="blur"
               width={341}
               height={511}
               className="rounded-lg w-full object-cover"

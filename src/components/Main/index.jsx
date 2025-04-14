@@ -1,4 +1,5 @@
 "use client";
+import LazyImg from "@/Hoc/LazyImg";
 import { useEffect, useRef } from "react";
 import { BiHappyHeartEyes } from "react-icons/bi";
 import { FaChevronLeft, FaChevronRight, FaMapMarkedAlt } from "react-icons/fa";
@@ -23,6 +24,8 @@ export default function Main() {
     window.scrollTo(0, 0);
   }, []);
   const sliderRef = useRef(null);
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 
   const settings = {
     dots: true,
@@ -58,9 +61,19 @@ export default function Main() {
           <p className="text-base md:text-lg mb-6">
             Sizni ajoyib sarguzashtlar kutmoqda. Hozir bo'lmasa qachon?!
           </p>
-          <a  href="tel:+998950407447" className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]">
+
+          <a
+            href={isMobile ? "tel:+998950407447" : "#"}
+            onClick={() => {
+              if (!isMobile) {
+                alert("Iltimos, bizga qo'ng'iroq qilish uchun telefoningizdan foydalaning: +998950407447");
+              }
+            }}
+            className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]"
+          >
             Bron qilish
           </a>
+
         </div>
       </section>
       <section className="container px-4 md:px-8 pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
@@ -82,7 +95,7 @@ export default function Main() {
         ))}
       </section>
       <section className="container py-16 px-4 grid grid-cols-1 md:grid-cols-2 gap-10">
-        <img
+        <LazyImg
           src="jpg20.jpg"
           alt="Biz haqimizda"
           className="rounded-xl w-full"
@@ -122,7 +135,7 @@ export default function Main() {
             {destinations.map((dest, index) => (
               <div key={index} className="px-2">
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <img
+                  <LazyImg
                     src={dest.image}
                     alt={dest.name}
                     className="w-full h-60 object-cover"
