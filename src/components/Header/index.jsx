@@ -43,17 +43,10 @@ const Header = () => {
             {t('Contact')}
           </Link>
         </div>
-
-        <div className="hidden md:flex  items-center gap-4">
-          <Link href={`/${lang}/booking`}>
-            <button className="bg-[#3d3990] text-white px-3 py-2 rounded-lg">
-              {t('BookNow')}
-            </button>
-          </Link>
-          <Select
-            style={{ width: 100 }}
+        <Select
+            style={{ width: 60 }}
             variant="filled"
-            size="large"
+            size="small"
             value={lang}
             onChange={(newLang) =>
               (window.location.href = `/${newLang}/${window.location.pathname.slice(
@@ -61,10 +54,18 @@ const Header = () => {
               )}`)
             }
           >
-            <Select.Option value="uz">uz</Select.Option>
-            <Select.Option value="en">en</Select.Option>
-            <Select.Option value="ru">ru</Select.Option>
+            <Select.Option value="uz">UZ</Select.Option>
+            <Select.Option value="en">EN</Select.Option>
+            <Select.Option value="ru">RU</Select.Option>
           </Select>
+
+        <div className="hidden md:flex  items-center gap-4">
+          <Link href={`/${lang}/booking`}>
+            <button className="bg-[#3d3990] text-white px-3 py-2 rounded-lg">
+              {t('BookNow')}
+            </button>
+          </Link>
+         
         </div>
 
         <div className="md:hidden flex items-center">

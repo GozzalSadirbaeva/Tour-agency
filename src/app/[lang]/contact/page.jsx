@@ -1,8 +1,9 @@
-"use client"; 
+"use client";
 
 import "leaflet/dist/leaflet.css";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false });
@@ -10,9 +11,9 @@ const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), 
 const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), { ssr: false });
 
 const Contact = () => {
+  const t = useTranslations(); 
+
   const tashkentCenter = [41.314702, 69.326102];
-
-
   const [markerIcon, setMarkerIcon] = useState(null);
 
   useEffect(() => {
@@ -20,8 +21,7 @@ const Contact = () => {
       import("leaflet").then((L) => {
         setMarkerIcon(
           new L.Icon({
-            iconUrl:
-              "https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon.png",
+            iconUrl: "https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon.png",
             iconSize: [25, 41],
             iconAnchor: [12, 41],
             popupAnchor: [1, -34],
@@ -39,28 +39,28 @@ const Contact = () => {
         </div>
         <div>
           <h2 className="font-bold text-3xl sm:text-4xl text-color-second text-center">
-            Bog‘lanish
+            {t("contactTitle")}
           </h2>
           <div className="pt-10 px-6 sm:px-10 pb-12 bg-white rounded-lg shadow-md">
             <h2 className="font-semibold text-2xl sm:text-3xl leading-8 pb-6">
-              Ma’lumot qoldiring
+              {t("formTitle")}
             </h2>
             <h3 className="inter text-lg sm:text-xl leading-7 pb-5">
-              Ma’lumotlaringizni qoldiring va operatorimiz sizga darhol aloqaga chiqadi.
+              {t("formSubtitle")}
             </h3>
             <form action="" className="flex flex-col">
               <input
                 type="text"
-                placeholder="Ismingiz"
+                placeholder={t("namePlaceholder")}
                 className="inter text-lg sm:text-xl leading-7 py-2 px-4 border border-gray-400 rounded-xl mb-4"
               />
               <input
                 type="text"
-                placeholder="+998 Telefon raqamingiz"
+                placeholder={t("phonePlaceholder")}
                 className="inter text-lg sm:text-xl leading-7 py-2 px-4 border border-gray-400 rounded-xl mb-4"
               />
               <button className="py-3 bg-[#DDAE57] text-white inter text-lg sm:text-xl leading-7 rounded-xl">
-                Jo‘natish
+                {t("submitButton")}
               </button>
             </form>
           </div>
@@ -74,7 +74,7 @@ const Contact = () => {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             <Marker position={tashkentCenter} icon={markerIcon}>
-              <Popup>Toshkent markazi</Popup>
+              <Popup>{t("popupText")}</Popup>
             </Marker>
           </MapContainer>
         )}

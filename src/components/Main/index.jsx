@@ -1,4 +1,5 @@
 'use client';
+import LazyImg from '@/Hoc/LazyImg';
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef } from 'react';
 import { BiHappyHeartEyes } from 'react-icons/bi';
@@ -54,10 +55,10 @@ export default function Main() {
       <section className="bg-home relative h-screen flex items-center justify-center bg-cover bg-center text-black px-4">
         <div className="bg-white bg-opacity-50 p-6 md:p-10 rounded-lg text-center w-full max-w-6xl">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#3d3990]">
-            Belletto Tour bilan dunyo bo'ylab sayohat qiling
+          {t('heroTitle')}
           </h1>
           <p className="text-base md:text-lg mb-6">
-            Sizni ajoyib sarguzashtlar kutmoqda. Hozir bo'lmasa qachon?!
+          {t('heroSubtitle')}
           </p>
           <a
             href="tel:+998950407447"
@@ -70,12 +71,12 @@ export default function Main() {
       </section>
       <section className="container px-4 md:px-8 pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         {[
-          { icon: <FaMapMarkedAlt size={40} />, text: 'Expert gid xizmati' },
-          { icon: <BiHappyHeartEyes size={40} />, text: 'Mamnun mijozlar' },
-          { icon: <GiAlarmClock size={40} />, text: 'Tezkor tasdiqlash' },
+          { icon: <FaMapMarkedAlt size={40} />, text: t('service1')  },
+          { icon: <BiHappyHeartEyes size={40} />, text: t('service2') },
+          { icon: <GiAlarmClock size={40} />, text: t('service3') },
           {
             icon: <MdOutlineSupportAgent size={40} />,
-            text: "24/7 Qo'llab-quvvatlash xizmati"
+            text: t('service4')
           }
         ].map((item, index) => (
           <div key={index} className="flex flex-col items-center gap-2">
@@ -94,28 +95,20 @@ export default function Main() {
         />
         <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#3d3990] text-center">
-            Biz haqimizda
+          {t('aboutTitle')}
           </h2>
           <p className="text-2xl text-center pb-2">
-            <b>BELLETTO TOUR </b>ga xush kelibsiz!
+          {t('aboutWelcome')}
           </p>
           <p className="text-lg">
-            Biz sizning ehtiyojlaringizga moslashtirilgan ajoyib sayohat
-            tajribasini taqdim etishga bag'ishlangan yangi tashkil etilgan
-            sayyohlik kompaniyasimiz. <br />
-            <b>BELLETTO TOUR</b>-da biz har bir sayohat shunchaki sayohatdan
-            ko'proq bo'lishi kerak, deb hisoblaymiz - bu kashfiyot, qulaylik va
-            unutilmas xotiralar bilan to'ldirilgan sarguzasht bo'lishi kerak.
-            Madaniy kashfiyotlar, dam olish sayohatlari yoki hayajonli
-            sarguzashtlarni qidiryapsizmi, bizning jamoamiz buni amalga oshirish
-            uchun shu yerda. <br />
-            <b className="text-center">BELLETTO TOUR bilan sayohat qiling!</b>
+          {t('aboutText')}
+            <b className="text-center">{t('aboutEnd')}</b>
           </p>
         </div>
       </section>
       <section className="pb-28 text-center px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#3d3990]">
-          Mashhur joylar
+         {t('popularPlaces')}
         </h2>
         <div className="relative max-w-5xl mx-auto">
           <button
