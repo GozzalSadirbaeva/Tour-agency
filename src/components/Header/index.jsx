@@ -23,7 +23,7 @@ const Header = () => {
             alt="Logo"
             className="w-[60px] h-[60px] rounded-full"
           />
-          <p>{'belletto-tour'}</p>
+          <p>{'BELLETTO-TOUR'}</p>
         </Link>
 
         <div className="hidden md:flex gap-10 text-[#3d3990]">
@@ -60,11 +60,11 @@ const Header = () => {
           </Select>
 
         <div className="hidden md:flex  items-center gap-4">
-          <Link href={`/${lang}/booking`}>
+          
             <button className="bg-[#3d3990] text-white px-3 py-2 rounded-lg">
-              {t('BookNow')}
+            +99895 040-74-47
             </button>
-          </Link>
+        
          
         </div>
 
@@ -116,14 +116,14 @@ const Header = () => {
             >
               {t('Contact')}
             </Link>
-            <Link href={`/${lang}/booking`}>
+            
               <button
                 className="bg-[#3d3990] text-white px-3 py-2 rounded-lg"
                 onClick={() => setIsOpen(false)}
               >
-                {t('BookNow')}
+                +99895 040-74-47
               </button>
-            </Link>
+           
           </nav>
         </div>
       )}

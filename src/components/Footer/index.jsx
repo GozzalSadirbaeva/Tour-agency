@@ -2,9 +2,10 @@ import Link from "next/link";
 import { BsTelegram } from "react-icons/bs";
 import { FaInstagramSquare, FaFacebookSquare, FaPhoneAlt, FaClock } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const Footer = () => {
+   const lang = useLocale();
   const t = useTranslations();
 
   return (
@@ -18,11 +19,11 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <div className="flex flex-col gap-3 text-center md:text-left">
-          <Link href="/" className="hover:text-gray-300">{t("home")}</Link>
-          <Link href="/destinations" className="hover:text-gray-300">{t("destinations")}</Link>
-          <Link href="/about" className="hover:text-gray-300">{t("about")}</Link>
-          <Link href="/term" className="hover:text-gray-300">{t("terms")}</Link>
-          <Link href="/contact" className="hover:text-gray-300">{t("contactus")}</Link>
+          <Link href={`/${lang}`} className="hover:text-gray-300">{t("home")}</Link>
+          <Link href={`/${lang}/destinations`} className="hover:text-gray-300">{t("destinations")}</Link>
+          <Link href={`/${lang}/about`} className="hover:text-gray-300">{t("about")}</Link>
+          <Link  href={`/${lang}/term`} className="hover:text-gray-300">{t("terms")}</Link>
+          <Link  href={`/${lang}/contact`} className="hover:text-gray-300">{t("contactus")}</Link>
         </div>
 
         {/* Contact Info */}

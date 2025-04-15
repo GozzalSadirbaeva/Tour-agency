@@ -9,6 +9,7 @@ import { MdOutlineSupportAgent } from 'react-icons/md';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import BookNowButton from '../BookBtn';
 
 const destinations = [
   { name: 'Bali, Indonesia', image: '/bali.jpg' },
@@ -60,12 +61,7 @@ export default function Main() {
           <p className="text-base md:text-lg mb-6">
           {t('heroSubtitle')}
           </p>
-          <a
-            href="tel:+998950407447"
-            className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]"
-          >
-            {t('BookNow')}
-          </a>
+          <BookNowButton/>
 
         </div>
       </section>

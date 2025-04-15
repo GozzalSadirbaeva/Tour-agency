@@ -81,7 +81,10 @@
   "faq_question_2": "How can I book a trip?",
   "faq_answer_2": "You can book through our website or by contacting us directly.",
   "faq_question_3": "What payment methods are available?",
-  "faq_answer_3": "We accept cash, bank cards, and online payment systems."
+  "faq_answer_3": "We accept cash, bank cards, and online payment systems.",
+  "address":"Address: 30 B, Parkent Street, Tashkent, Uzbekistan",
+  "openInGoogleMapsButton": "View on map"
+
  
         
 }

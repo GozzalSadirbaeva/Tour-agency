@@ -21,22 +21,56 @@ const Contact = () => {
       import("leaflet").then((L) => {
         setMarkerIcon(
           new L.Icon({
-            iconUrl: "https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon.png",
+            iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
             iconSize: [25, 41],
             iconAnchor: [12, 41],
             popupAnchor: [1, -34],
+            shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/marker-shadow.png",
           })
         );
       });
     }
   }, []);
 
+  // Function to open Google Maps
+  const openGoogleMaps = () => {
+    const googleMapsUrl = `https://www.google.com/maps?q=${tashkentCenter[0]},${tashkentCenter[1]}`;
+    window.open(googleMapsUrl, "_blank");
+  };
+
   return (
-    <div className="mt-10 px-4 sm:px-6 lg:px-8">
+    <div className="mt-20 mb-10 px-4 sm:px-6 lg:px-8">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <img src="/jpg22.jpg" alt="" className="rounded-lg w-full object-cover" />
+        
+        {/* Map and button */}
+        <div className="relative h-[400px] sm:h-[600px] flex flex-col ">
+          {markerIcon && (
+            <MapContainer
+              center={tashkentCenter}
+              zoom={13}
+              className="h-full w-full rounded-xl shadow-md z-0"
+            >
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              />
+              <Marker position={tashkentCenter} icon={markerIcon}>
+                <Popup>{t("popupText")}</Popup>
+              </Marker>
+            </MapContainer>
+          )}
+
+          {/* Button inside map */}
+          <button 
+            onClick={openGoogleMaps} 
+            className="absolute md:bottom-10  left-0 z-10 py-2 px-4 bg-[#DDAE57] text-white inter text-base sm:text-lg rounded-xl shadow-md hover:bg-[#c89b4c] transition"
+          >
+            {t("openInGoogleMapsButton")}
+          </button>
+
+          <h2 className="text-lg font-medium mt-4">{t("address")}</h2>
         </div>
+        {/* Contact form */}
         <div>
           <h2 className="font-bold text-3xl sm:text-4xl text-color-second text-center">
             {t("contactTitle")}
@@ -59,25 +93,12 @@ const Contact = () => {
                 placeholder={t("phonePlaceholder")}
                 className="inter text-lg sm:text-xl leading-7 py-2 px-4 border border-gray-400 rounded-xl mb-4"
               />
-              <button className="py-3 bg-[#DDAE57] text-white inter text-lg sm:text-xl leading-7 rounded-xl">
+              <button className="py-3 bg-[#DDAE57] text-white inter text-lg sm:text-xl leading-7 rounded-xl hover:bg-[#c89b4c] transition">
                 {t("submitButton")}
               </button>
             </form>
           </div>
         </div>
-      </div>
-      <div className="w-full h-96 sm:h-[400px] mt-10 flex justify-center border-none">
-        {markerIcon && (
-          <MapContainer center={tashkentCenter} zoom={13} className="h-full w-full max-w-4xl">
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-            <Marker position={tashkentCenter} icon={markerIcon}>
-              <Popup>{t("popupText")}</Popup>
-            </Marker>
-          </MapContainer>
-        )}
       </div>
     </div>
   );
