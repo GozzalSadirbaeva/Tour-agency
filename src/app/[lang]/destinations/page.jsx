@@ -40,7 +40,7 @@ export default function Destinations() {
         { destination: t('Moskva'), price: "3 125 670" },
         { destination: t("Istanbul"), price: "11 453 300" },
         { destination: t("Sankt-Peterburg"), price: "3 191 150" },
-        { destination: t('Dubay'), price: "1 500" },
+        { destination: t('Dubay'), price: "2 098 850" },
       ],
     },
     {
