@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
-const BookNowButton = () => {
+const BookNowButton = ({ title }) => {
   const t = useTranslations();
   const lang = useLocale();
   const router = useRouter();
@@ -16,21 +16,26 @@ const BookNowButton = () => {
     }
   }, []);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault(); // Prevent default <a> navigation
     if (isMobile) {
       window.location.href = "tel:+998950407447";
     } else {
-        router.push(`/${lang}/contact`);
+      router.push(`/${lang}/contact`);
     }
   };
 
+  // Set href based on device type
+  const href = isMobile ? "tel:+998950407447" : `/${lang}/contact`;
+
   return (
-    <button
+    <a
+      href={href}
       onClick={handleClick}
-      className="bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082]"
+      className="inline-block bg-[#3d3990] text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-[#343082] transition-colors"
     >
-      {t("BookNow")}
-    </button>
+      {title || t("BookNow")}
+    </a>
   );
 };
 

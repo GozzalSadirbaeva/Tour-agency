@@ -62,7 +62,7 @@ const Header = () => {
 
         <div className="hidden md:flex  items-center gap-4">
           
-        <BookNowButton/>
+        <BookNowButton title={"+99895 040-74-47"}/>
          
         </div>
 
