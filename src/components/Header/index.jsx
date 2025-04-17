@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { memo, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
+import BookNowButton from '../BookBtn';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,10 +62,7 @@ const Header = () => {
 
         <div className="hidden md:flex  items-center gap-4">
           
-            <button className="bg-[#3d3990] text-white px-3 py-2 rounded-lg">
-            +99895 040-74-47
-            </button>
-        
+        <BookNowButton/>
          
         </div>
 
