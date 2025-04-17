@@ -11,10 +11,11 @@ const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), 
 const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), { ssr: false });
 
 const Contact = () => {
-  const t = useTranslations(); 
-
+  const t = useTranslations();
   const tashkentCenter = [41.314702, 69.326102];
   const [markerIcon, setMarkerIcon] = useState(null);
+  const [formData, setFormData] = useState({ name: "", phone: "" });
+  const [formStatus, setFormStatus] = useState({ message: "", success: null });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -38,10 +39,53 @@ const Contact = () => {
     window.open(googleMapsUrl, "_blank");
   };
 
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus({ message: "", success: null });
+
+    if (!formData.name || !formData.phone) {
+      setFormStatus({ message: t("formValidationError"), success: false });
+      return;
+    }
+
+    const payload = {
+      chat_id: -1002512997357,
+      name: formData.name,
+      phone: formData.phone,
+    };
+
+    try {
+      const response = await fetch("https://from-to.uz/api/telegram/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.status === 200) {
+        setFormStatus({ message: t("formSuccessMessage"), success: true });
+        setFormData({ name: "", phone: "" }); // Reset form
+      } else {
+        setFormStatus({ message: result.message || t("formErrorMessage"), success: false });
+      }
+    } catch (error) {
+      setFormStatus({ message: t("formErrorMessage"), success: false });
+    }
+  };
+
   return (
     <div className="mt-20 mb-10 px-4 sm:px-6 lg:px-8">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-6">
-        
         {/* Map and button */}
         <div className="relative h-[400px] sm:h-[600px] flex flex-col ">
           {markerIcon && (
@@ -52,7 +96,7 @@ const Contact = () => {
             >
               <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               />
               <Marker position={tashkentCenter} icon={markerIcon}>
                 <Popup>{t("popupText")}</Popup>
@@ -61,9 +105,9 @@ const Contact = () => {
           )}
 
           {/* Button inside map */}
-          <button 
-            onClick={openGoogleMaps} 
-            className="absolute md:bottom-10  left-0 z-10 py-2 px-4 bg-[#DDAE57] text-white inter text-base sm:text-lg rounded-xl shadow-md hover:bg-[#c89b4c] transition"
+          <button
+            onClick={openGoogleMaps}
+            className="absolute md:bottom-10 left-0 z-10 py-2 px-4 bg-[#DDAE57] text-white inter text-base sm:text-lg rounded-xl shadow-md hover:bg-[#c89b4c] transition"
           >
             {t("openInGoogleMapsButton")}
           </button>
@@ -82,20 +126,38 @@ const Contact = () => {
             <h3 className="inter text-lg sm:text-xl leading-7 pb-5">
               {t("formSubtitle")}
             </h3>
-            <form action="" className="flex flex-col">
+            <form onSubmit={handleSubmit} className="flex flex-col">
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
                 placeholder={t("namePlaceholder")}
                 className="inter text-lg sm:text-xl leading-7 py-2 px-4 border border-gray-400 rounded-xl mb-4"
               />
               <input
                 type="text"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
                 placeholder={t("phonePlaceholder")}
                 className="inter text-lg sm:text-xl leading-7 py-2 px-4 border border-gray-400 rounded-xl mb-4"
               />
-              <button className="py-3 bg-[#DDAE57] text-white inter text-lg sm:text-xl leading-7 rounded-xl hover:bg-[#c89b4c] transition">
+              <button
+                type="submit"
+                className="py-3 bg-[#DDAE57] text-white inter text-lg sm:text-xl leading-7 rounded-xl hover:bg-[#c89b4c] transition"
+              >
                 {t("submitButton")}
               </button>
+              {formStatus.message && (
+                <p
+                  className={`mt-4 text-center ${
+                    formStatus.success ? "text-green-600" : "text-red-600"
+                  }`}
+                >
+                  {formStatus.message}
+                </p>
+              )}
             </form>
           </div>
         </div>
